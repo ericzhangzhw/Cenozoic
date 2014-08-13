@@ -1,0 +1,27 @@
+CREATE TABLE files (
+  path text,
+  name text,
+  endptr bigint,
+  beginptr bigint,
+  data blob,
+  length int,
+  PRIMARY KEY ((path, name), endptr)
+);
+
+CREATE TABLE dirs (
+  path text,
+  name text,
+  created timestamp,
+  length bigint,
+  PRIMARY KEY (path, name)
+);
+
+CREATE TABLE locks (
+  path text,
+  name text,
+  server text,
+  instance text,
+  modified timestamp,
+  locked boolean,
+  PRIMARY KEY ((path, name), locked)
+);

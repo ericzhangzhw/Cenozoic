@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <title>Search Engine Demo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        
+        <h3 class="text-muted">Search Engine Demo</h3>
+      </div>
+
+      <div class="jumbotron">
+      <h2>Create Document Tags</h2>
+ 		  <div>
+			<form action="tagdemo?c=index" method="post">
+				<div style='margin: 5px 0px 5px 0px'>
+				<table>
+					<tr><td>ID:</td><td><input type="text" name="doc_id"> e.g. $docid</td></tr>
+					<tr><td>Tags:</td><td><input type="text" name="doc_tags"> e.g. $tag1</td></tr>
+					<tr><td></td><td><input type="submit" value="Index" class="btn btn-lg btn-success"></td></tr>
+				</table>
+				</div>
+			
+			</form>
+		  </div>
+		  
+		  <div>$index</div>
+		
+		<h2>Search Documents by Tags</h2>
+		  <div>
+			<form action="tagdemo?c=search" method="post">
+				<div style='margin: 5px 0px 5px 0px'>
+				<table>
+					<tr><td>Tag:</td><td><input type="text" name="doc_tags"> e.g. $tag2</td></tr>
+					<tr><td></td><td><input type="submit" value="Search" class="btn btn-lg btn-success"></td></tr>
+				</table>
+				</div>
+			</form>
+		  </div>
+		  <div>$search</div>
+      </div>
+      	
+
+      <div class="footer">
+        <p>&copy; 2014 Graph Concern, Inc.</p>
+      </div>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

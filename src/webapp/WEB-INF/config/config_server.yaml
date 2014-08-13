@@ -1,0 +1,54 @@
+--- # server specific parameters, overrides global values
+
+workDirectory : /Users/felixchiu/gc-test
+
+mqConfiguration :
+    discoveryURI :
+    #    - 127.0.0.1:61616
+    networkTTL : 2
+    #
+    # failover = true to randomly select a network MQ node
+    # Otherwise fallback to "master-slave" discovery protocol
+    #
+    failover : false
+    #
+    # local MQ instance to segregate MQ traffic
+    # all local message queues and topics are prefixed with "private."
+    #
+    port : 61617
+    directoryOffset : graphconcern-mq
+    consolePort: 61671
+
+#
+# Storage connector implementation
+#
+# protocol MUST be globally unique for each storage connector
+# label is for logging purpose only
+# gatewayUrl is used to connect to the virtual storage system
+#
+# Other parameters under storageConnector are implementation specific
+#
+concurrent:
+    storageConnector: 3
+
+storageConnector:
+    label: Simple File System
+    protocol : file://
+    repository : /Users/felixchiu/gc-test/StorageConnector/inbox
+    gatewayUrl : ws://localhost:8080/vsg/connector
+
+clucene:
+    aggregate:
+        seconds : 10
+        size : 10
+
+concurrent:
+    indexer: 10
+    searcher: 10
+
+cassandra:
+    clucene:
+        port : 9042
+        hosts :
+            - 127.0.0.1
+        keySpace : search

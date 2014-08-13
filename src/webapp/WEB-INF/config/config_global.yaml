@@ -1,0 +1,36 @@
+--- # global parameters
+
+platformVersion : 0.3.0
+workDirectory : /home/vss
+domain : graphconcern.com
+domainId : GC
+
+cassandra:
+    clucene:
+        port : 9042
+        hosts :
+            - 127.0.0.1
+        keySpace : search
+
+httpClientPool: 50
+
+asyncHttpClient:
+    enabled: false
+
+mqConfiguration :
+    discoveryURI :
+    networkTTL : 2
+    #
+    # failover = true to randomly select a network MQ node
+    # Otherwise fallback to "master-slave" discovery protocol
+    #
+    failover : false
+    #
+    # Optional broker-to-broker security:
+    # activemq.xml should have configured <plugins><simpleAuthenticationPlugin>
+    #
+    username : user
+    password : password
+    #
+    port : 61617
+    directoryOffset : clique-mq

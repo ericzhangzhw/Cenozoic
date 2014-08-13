@@ -1,0 +1,38 @@
+--- # server specific parameters, overrides global values
+
+workDirectory : /Users/felixchiu/tmp/search
+
+mqConfiguration :
+    discoveryURI :
+    #    - 127.0.0.1:61616
+    networkTTL : 2
+    #
+    # failover = true to randomly select a network MQ node
+    # Otherwise fallback to "master-slave" discovery protocol
+    #
+    failover : false
+    #
+    # local MQ instance to segregate MQ traffic
+    # all local message queues and topics are prefixed with "private."
+    #
+    port : 61617
+    directoryOffset : graphconcern-mq
+    consolePort: 61671
+
+cassandra:
+    clucene:
+        port : 9042
+        hosts :
+            - 127.0.0.1
+        keySpace : clucene
+
+clucene:
+    index:
+        seconds : 30
+        max : 10
+        min : 5
+    storage: /Users/felixchiu/tmp/search/storage
+
+concurrent:
+    indexer: 0
+    searcher: 7

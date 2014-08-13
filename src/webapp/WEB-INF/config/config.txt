@@ -1,0 +1,31 @@
+#
+# This configuration file allows the use of "#" as comments
+#
+# The configuration reader will trim all spaces and comments.
+# Please ensure that the resultant content conforms to JSON format.
+#
+
+{
+#
+# CI domain name
+#
+	"ci-domain": "cliqueintelligence.com",
+	"xmpp-system-user": {"id": "service-notification", "password": "cd4c05fc2b394f8a8245a9b6dc923144"},
+
+#
+# The distributed database cluster is a MongoDB store.
+# This should be a list of hostnames and ports.
+# The default port for MonogoDB is 27017.
+#
+# For production, set it to the "seed" nodes of the live cluster.
+# MongoDB will automatically discover additional nodes.
+#
+    "mongodb": [ {"host": "localhost", "port": 27017} ],
+    
+}
+
+#
+# Thank you
+#
+# 2013 (c) Clique Intelligence, Inc.
+#

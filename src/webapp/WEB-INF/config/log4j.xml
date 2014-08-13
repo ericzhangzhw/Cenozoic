@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+  -->
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!-- ====================================================================== -->
+    <!-- A P P E N D E R S                                                      -->
+	<!-- "%d{yyyyMMdd HH:mm:ss} %p %c{1}: %m (Line %L)%n"						-->
+	<!-- Remove line number for production as it would slow down logging		-->
+    <!-- ====================================================================== -->
+
+    <!-- console log -->
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy/MM/dd HH:mm:ss} %p %c{1}: %m (Line %L)%n"/>
+        </layout>
+    </appender>
+		
+    <!-- ====================================================================== -->		
+    <!-- rolling file log (DatePattern='.'yyyy-MM-dd-HH-mm) 					--> 	
+    <!-- ====================================================================== -->
+	<appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
+
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<param name="File" value="logs/xmpp.log"/>
+		<param name="Append" value="true"/>
+
+		<layout class="org.apache.log4j.PatternLayout">
+
+            <param name="ConversionPattern" value="%d{yyyy/MM/dd HH:mm:ss} %p %c{1}: %m (Line %L)%n"/>
+		</layout>
+
+	</appender>
+	
+	<!-- ====================================================================== -->
+    <!-- Logging instructions for specific classes                              -->
+    <!-- ====================================================================== -->
+	
+	<!--
+	<logger name="org.apache.zookeeper.ZooKeeper">
+		<level value="warn" />
+	</logger>	
+	
+	<logger name="org.apache.zookeeper.ClientCnxn">
+		<level value="warn" />
+	</logger>
+    -->
+	
+    <!-- ====================================================================== -->
+    <!-- Set appender-ref to either console or file                             -->
+    <!-- ====================================================================== -->
+    <root>
+        <level value="info" />
+        <appender-ref ref="console"/>
+        <appender-ref ref="file"/>
+    </root>
+
+</log4j:configuration>
