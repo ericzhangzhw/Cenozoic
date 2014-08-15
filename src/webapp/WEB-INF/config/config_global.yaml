@@ -33,4 +33,4 @@ mqConfiguration :
     password : password
     #
     port : 61617
-    directoryOffset : clique-mq
+    directoryOffset : graphconcern-mq

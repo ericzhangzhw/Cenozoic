@@ -7,9 +7,9 @@
 
 {
 #
-# CI domain name
+# GC domain name
 #
-	"ci-domain": "cliqueintelligence.com",
+	"gc-domain": "graphconcern.com",
 	"xmpp-system-user": {"id": "service-notification", "password": "cd4c05fc2b394f8a8245a9b6dc923144"},
 
 #
@@ -21,7 +21,7 @@
 # MongoDB will automatically discover additional nodes.
 #
     "mongodb": [ {"host": "localhost", "port": 27017} ],
-    
+
 }
 
 #
